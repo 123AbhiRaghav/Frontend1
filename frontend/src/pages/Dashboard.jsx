@@ -155,7 +155,7 @@ const Dashboard = () => {
     )
     const totals = data?.tasks;
 
-  const stats = [
+ const stats = [
     {
       _id: "1",
       label: "TOTAL TASK",
@@ -165,27 +165,26 @@ const Dashboard = () => {
     },
     {
       _id: "2",
-      label: "COMPLTED TASK",
-      total: totals["Completed"] || 0,
+      label: "COMPLETED TASK",
+      total: totals && totals["Completed"] ? totals["Completed"] : 0,
       icon: <MdAdminPanelSettings />,
       bg: "bg-[#0f766e]",
     },
     {
       _id: "3",
-      label: "TASK IN PROGRESS ",
-      total: totals["in progress"] || 0,
+      label: "TASK IN PROGRESS",
+      total: totals && totals["in progress"] ? totals["in progress"] : 0,
       icon: <LuClipboardEdit />,
       bg: "bg-[#f59e0b]",
     },
     {
       _id: "4",
       label: "TODOS",
-      total: totals["todo"],
+      total: totals && totals["todo"] ? totals["todo"] : 0,
       icon: <FaArrowsToDot />,
-      bg: "bg-[#be185d]" || 0,
+      bg: "bg-[#be185d]",
     },
   ];
-
   const Card = ({ label, count, bg, icon }) => {
     return (
       <div className='w-full h-32 bg-white p-5 shadow-md rounded-md flex items-center justify-between'>
